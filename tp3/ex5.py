@@ -4,13 +4,12 @@ from random import randint
 
 #variable
 mot2=str()
-mothide=list()
-chance=3
-chance_used=0
+mothide=str()
 lettre=list()
+chance=3
 
-#cde
-os.chdir('C:/Users/torre/OneDrive/Bureau/travail/nsi/tp3')
+#code
+os.chdir('C:/Users/torre/Desktop/nsi/nsi/tp3')
 file=open('mot.txt','r')
 line=file.readlines()
 nmbrmot=randint(0,len(line))
@@ -21,6 +20,19 @@ lettre=list(input("Entrez 5 lettres : "))
 while len(lettre)!=5:
     print("Merci d'entrez 5 lettres")
     lettre=list(input("Entrez 5 lettre : "))
-for i in range(len(mot)):
-    if mot[i] in lettre:
-        mothide=
+for i in range(len(mot2)):
+    if mot2[i] in lettre:
+        mothide+=mot[i]
+    else:
+        mothide+='*'
+print(mothide)
+while chance>0:
+    print("Entrez le mot qui correspond, il vous reste",chance,"chances")
+    rep=str(input())
+    if rep==mot2:
+        print("Bien jouez, vous avez trouver le mot")
+        chance=0
+    else:
+        chance-=1
+        if chance==0:
+            print("Perdu, le mot était : ",mot2)
